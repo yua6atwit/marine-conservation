@@ -1,52 +1,59 @@
-import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { AuthContextProvider, useAuth } from '@/context/authContext';
 import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
+import { router, Slot, useSegments } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
-
 
 export {
   // Catch any errors thrown by the Layout component.
   ErrorBoundary
 } from 'expo-router';
 
-
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
+  //Add custom fonts
   const [loaded, error] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-    ...FontAwesome.font,
+    'RedHatDisplay': require('../assets/fonts/RedHatDisplay-Regular.ttf'),
+    'OpenSans': require('../assets/fonts/OpenSans-ExtraBold.ttf'),
   });
 
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
   useEffect(() => {
-    if (error) throw error;
-  }, [error]);
-
-  useEffect(() => {
-    if (loaded) {
+    if (loaded || error) {
       SplashScreen.hideAsync();
     }
-  }, [loaded]);
-
-  if (!loaded) {
+  }, [loaded, error]);
+  if (!loaded && !error) {
     return null;
   }
-
-  return <RootLayoutNav />;
+  
+  return (
+    <AuthContextProvider>
+      <RootLayoutNav/>
+    </AuthContextProvider>
+  )
 }
 
-function RootLayoutNav() {
-  return (
-      <Stack>
-        <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="login" options={{ title: 'Login', presentation: 'modal' }} />
-        <Stack.Screen name="register" options={{ title: 'Register', presentation: 'modal' }} />
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-  );
+const RootLayoutNav = () => {
+  const {isAuthenticated} = useAuth();
+  const segments = useSegments();
+
+  useEffect(()=>{
+    //check if user is authenticated
+    if(typeof isAuthenticated == 'undefined') return;
+    const inApp = segments[0] == '(app)';;
+
+    if(isAuthenticated && !inApp){
+      //redirect to home
+      router.replace('/(app)')
+    } 
+    else if (!isAuthenticated){
+      //redirect to start screen
+      router.replace('/')
+    }
+  }, [isAuthenticated])
+  return <Slot />
 }
