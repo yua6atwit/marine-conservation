@@ -44,16 +44,12 @@ const RootLayoutNav = () => {
   useEffect(()=>{
     //check if user is authenticated
     if(typeof isAuthenticated == 'undefined') return;
-    const inApp = segments[0] == '(app)';;
+    const inApp = segments[0] == '(tabs)';
 
     if(isAuthenticated && !inApp){
       //redirect to home
-      router.replace('/(app)')
+      router.replace('/(tabs)/home')
     } 
-    else if (!isAuthenticated){
-      //redirect to start screen
-      router.replace('/')
-    }
   }, [isAuthenticated])
   return <Slot />
 }

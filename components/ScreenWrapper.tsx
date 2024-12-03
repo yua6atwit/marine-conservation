@@ -8,9 +8,9 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
  */
 export const ScreenWrapper= ({children}:any) => {
 
-    const {top} = useSafeAreaInsets();
+    const {top, bottom} = useSafeAreaInsets();
     //check top padding
-    const paddingTop = top>0 ? top+5 : 30;
+    const paddingTop = top>0 ? top+5 : 10;
   
     // Accessing colors from the current theme
     const colors = useTheme().colors;
@@ -19,7 +19,7 @@ export const ScreenWrapper= ({children}:any) => {
       <View style={[
         {backgroundColor: colors.background,
           flex: 1,
-          paddingTop
+          paddingTop,
         },
       ]}>
         {

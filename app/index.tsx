@@ -16,7 +16,7 @@ export default function index() {
         {/* title */}
         <View style={{gap: 20}}>
           <Text type='title'>Home Screen</Text>
-          <Text type='subtitle'>
+          <Text type='heading1'>
             Description: ajsidjo hiwhu dhwaih dwuagdyua guwagd gaywugd
           </Text>
         </View>
@@ -25,7 +25,7 @@ export default function index() {
         <View style = {styles.footer}>
           <Button
             label='Getting Started'
-            onPress={() => router.push('/signup')}
+            onPress={() => router.push('/home')}
           />
           <View style = {styles.bottomTextContainer}>
             <Text>Already have an account?</Text>

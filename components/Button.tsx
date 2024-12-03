@@ -1,6 +1,6 @@
 import { hp } from "@/constants/helper";
 import { colors } from "@/constants/theme";
-import { Pressable, StyleSheet, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { Loading } from "./Loading";
 import { Text } from "./Text";
 
@@ -46,14 +46,14 @@ export const Button = ({
     }
     return (
         //apply button style
-        <Pressable onPress={onPress}
+        <TouchableOpacity onPress={onPress}
         style= {[
             {backgroundColor: colors().buttonBackground},
             styles.button,
             hasShadow && shadowStyle
             ]}>
             <Text type='buttonText'>{label}</Text>
-        </Pressable>
+        </TouchableOpacity>
     )
 }
 

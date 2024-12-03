@@ -28,8 +28,6 @@ export default function LoginScreen() {
     const response = await login(emailRef.current, passwordRef.current)
     setLoading(false);
 
-    console.log('Login response', response)
-
     if(!response.success){
       Alert.alert('Login', response.msg);
     }

@@ -11,6 +11,12 @@ export default function AppLayout() {
   });
 
   return (
+    <TabNav/>
+  );
+}
+
+function TabNav () {
+  return (
     <Tabs
     screenOptions={{
       headerShown: false,
@@ -20,33 +26,33 @@ export default function AppLayout() {
       tabBarStyle: {position: 'absolute', height: 60},
     }}>
       <Tabs.Screen
-        name="index"
+        name="home"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color }) => <Ionicons name='home-outline' color={color}/>,
+          tabBarIcon: ({ color }) => <Ionicons name='home-outline' size = {25} color={color}/>,
         }}
       />
       <Tabs.Screen
         name="two"
         options={{
           title: 'Post',
-          tabBarIcon: ({ color }) => <Ionicons name='home-outline'  color={color} />,
+          tabBarIcon: ({ color }) => <Ionicons name='home-outline' size = {25} color={color} />,
         }}
       />
       <Tabs.Screen
         name="three"
         options={{
           title: 'Upload',
-          tabBarIcon: ({ color }) => <Ionicons name='home-outline' color={color} />,
+          tabBarIcon: ({ color }) => <Ionicons name='home-outline' size = {25} color={color} />,
         }}
       />
       <Tabs.Screen
         name="four"
         options={{
           title: 'Profile',
-          tabBarIcon: ({ color }) => <Ionicons name='home-outline'  color={color} />,
+          tabBarIcon: ({ color }) => <Ionicons name='home-outline' size = {25} color={color} />,
         }}
       />
     </Tabs>
-  );
+  )
 }

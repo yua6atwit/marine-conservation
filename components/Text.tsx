@@ -5,7 +5,7 @@ import { Text as DefaultText, StyleSheet, type TextProps } from 'react-native';
 // Creates text props
 // Optional 'type' property to determine the text style
 export type ThemedTextProps = TextProps & {
-  type?: 'title' | 'subtitle' | 'text' | 'link' | 'buttonText'; 
+  type?: 'title' | 'heading1' | 'text' | 'subtitle' | 'link' | 'buttonText'; 
 };
 
 /**
@@ -24,8 +24,9 @@ export const Text = ({
         //Apply text styles
         {color: colors().text},
         type === 'title' ? styles.title : undefined, 
-        type === 'subtitle' ? styles.subtitle : undefined, 
+        type === 'heading1' ? styles.heading1 : undefined, 
         type === 'text' ? styles.text : undefined, 
+        type === 'subtitle' ?[{color: 'gray'}, styles.subtitle]  : undefined, 
         type === 'buttonText' ? [{color: colors().buttonText}, styles.buttonText] : undefined, 
         type === 'link' ? [{color: colors().link}, styles.link] : undefined, 
       ]}
@@ -42,15 +43,17 @@ const styles = StyleSheet.create({
     fontSize: hp(4), 
     textAlign: 'center',
   },
-  subtitle: {
+  heading1: {
     fontFamily: 'RedHatDisplay', 
     fontSize: hp(2), 
-    textAlign: 'center',
   },
   text: {
     fontFamily: 'RedHatDisplay', 
     fontSize: hp(1.8),
-    
+  },
+  subtitle: {
+    fontFamily: 'RedHatDisplay', 
+    fontSize: hp(1.6),
   },
   buttonText: {
     fontFamily: 'RedHatDisplay', 
