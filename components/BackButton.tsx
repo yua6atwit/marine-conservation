@@ -6,11 +6,11 @@ import { StyleSheet, TouchableOpacity } from 'react-native';
 /**
  * Custom back button
  */
-export const BackButton = () => {
+export const BackButton = ({onPress}: any) => {
     const router = useRouter();
     return (
         //apply style
-        <TouchableOpacity onPress={()=> router.back() } style = {styles.button}>
+        <TouchableOpacity onPress={onPress? onPress : ()=> router.back() } style = {styles.button}>
             <Ionicons name="chevron-back" size={24} color="black" />
         </TouchableOpacity>
     )

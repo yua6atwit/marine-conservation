@@ -37,7 +37,7 @@ export default function LoginScreen() {
     <ScreenWrapper>
       <KeyboardView>
         <View style = {styles.container}>
-          <BackButton/>
+          <BackButton onPress = {() => router.replace('/')}/>
           
           {/* Title */}
           <Text type='title'>Login</Text>

@@ -1,4 +1,5 @@
 import { Button } from '@/components/Button';
+import { createPost, PostData } from '@/components/database/PostDB';
 import { Header } from '@/components/Header';
 import { RichTextEditor } from '@/components/RichTextEditor';
 import { ScreenWrapper } from '@/components/ScreenWrapper';
@@ -7,11 +8,12 @@ import { hp, wp } from '@/constants/helper';
 import { useAuth } from '@/context/authContext';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import * as ImagePicker from 'expo-image-picker';
+import { router } from 'expo-router';
 import { useVideoPlayer, VideoView } from 'expo-video';
 import React, { useRef, useState } from 'react';
-import { Image, Pressable, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Alert, Image, Pressable, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
 
-export default function TabTwo() {
+export default function PostScreen() {
   const {user} = useAuth()
   const bodyRef = useRef('')
   const editorRef = useRef('')
@@ -69,15 +71,30 @@ export default function TabTwo() {
     player.play();
   });
 
-  //TODO
   const onSubmit = async () => {
+    if (!bodyRef.current && !file){
+      Alert.alert('Post', 'Please fill at least one field')
+      return
+    }
+    //console.log('two: user', user)
+    let data : PostData = {
+      image: file? file.uri : null,
+      text: bodyRef.current,
+      user: user,
+    }
+    
+    //create post
+    setLoading(true)
+    await createPost(data)
+    setLoading(false)
 
+    router.replace('/(tabs)/addScreen');
   }
 
   return (
     <ScreenWrapper>
       
-      <Header title = 'Create Post'/>
+      <Header title = 'Create Post' onPress ={() => router.replace('/(tabs)/addScreen')}/>
 
       <View style = {styles.container}>
 
@@ -110,7 +127,7 @@ export default function TabTwo() {
                       style = {{flex: 1}} />
                   )
                 }
-                {/* video button to delete video */}
+                {/* Icon button to delete video */}
                 <Pressable style={styles.closeIcon} onPress = {() => setFile(null)}>
                   <Ionicons name="trash-outline" size={22} />
                 </Pressable>
@@ -120,7 +137,7 @@ export default function TabTwo() {
 
           {/*Add to Post */}
           <View style = {styles.media}>
-            <Text type='heading1'>Add to your post</Text>
+            <Text type='heading4'>Add to your post</Text>
 
             {/* Icons */}
             <View style = {styles.mediaIcons}>

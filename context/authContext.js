@@ -25,13 +25,13 @@ export const AuthContextProvider = ({children}) => {
     return unsub;
   },[])
 
-  const updateUserData = async (userId) => {
-    const docRef = doc(db, 'users', userId)
+  const updateUserData = async (uid) => {
+    const docRef = doc(db, 'users', uid)
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
       let data = docSnap.data()
-      setUser({...user, username: data.username, userId: data.userId})
+      setUser({...user, username: data.username, uid: data.uid})
     }
   }
 
@@ -64,7 +64,7 @@ export const AuthContextProvider = ({children}) => {
       await setDoc(doc(db, 'users', response?.user?.uid),
       {
         username,
-        userId: response?.user?.uid,
+        uid: response?.user?.uid,
 
       })
       return {success: true, data: response?.user}

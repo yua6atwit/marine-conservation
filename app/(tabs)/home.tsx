@@ -1,39 +1,47 @@
-import { Button } from '@/components/Button';
-import { getUserData, getUsersList } from '@/components/database/UserDB';
-import PostsList from '@/components/PostsList';
+import { getPosts } from '@/components/database/PostDB';
+import { PostItem } from '@/components/PostItem';
 import { ScreenWrapper } from '@/components/ScreenWrapper';
-import { Text } from '@/components/Text';
-import { hp } from '@/constants/helper';
 import { useAuth } from '@/context/authContext';
-import React from 'react';
-import { Image, StyleSheet, View } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { FlatList, StyleSheet } from 'react-native';
 
+var limit = 0;
 export default function Home() {
-  const {logout, user } = useAuth();
-  const userData = getUserData()
-  console.log('home got userData', userData?.username)
-  console.log('home got user', user.username)
+  const { user } = useAuth();
+  const [posts, setPosts] = useState<any[]>()
+
+  useEffect(() =>{
+    getPostsList()
+  },[])
+
+  const getPostsList = async() => {
+    //call the api here
+    limit = limit + 0;
+
+    console.log('fetching posts:', limit)
+    let result = await getPosts();
+
+    if (result.success){
+      setPosts(result.data)
+    }
+
+  }
 
   return (
     <ScreenWrapper>
-      <View>
-        <Text type='text'>home</Text>
-      </View>
 
-      <View>
-        <Image 
-        style = {{height: hp(4), aspectRatio: 1, borderRadius: 100}}
-        source={require('@/assets/images/defaultProfile.png')}
-        />
-      </View>
-
-      {
-        <PostsList users={getUsersList()}/>
-      }
-
-      <View style = {{flex:1}}>
-        <Button label='Logout' onPress={logout}/>
-      </View>
+      <FlatList
+        data = {posts}
+        showsVerticalScrollIndicator = {false}
+        contentContainerStyle = {styles.listStyle}
+        keyExtractor={item=> item.id.toString()}
+        renderItem = { ({item}) => 
+          <PostItem 
+            item = {item}
+            currentUser = {user}
+          />
+        }
+      />
 
     </ScreenWrapper>
   );
@@ -45,8 +53,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  separator: {
-    height: 1,
-    backgroundColor: 'black'
+  listStyle: {
+
   },
 });

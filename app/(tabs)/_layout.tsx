@@ -4,6 +4,7 @@ import { router, Tabs } from 'expo-router';
 import { getAuth } from 'firebase/auth';
 import React from 'react';
 
+
 export default function AppLayout() {
 
   getAuth().onAuthStateChanged((user) => {
@@ -23,34 +24,38 @@ function TabNav () {
       tabBarInactiveTintColor: 'gray',
       tabBarActiveTintColor: colors().tint,
       tabBarLabelStyle: {fontFamily: 'RedHatDisplay', fontSize: 16},
-      tabBarStyle: {position: 'absolute', height: 60},
+      tabBarStyle: {position: 'relative', height: 60},
     }}>
       <Tabs.Screen
         name="home"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color }) => <Ionicons name='home-outline' size = {25} color={color}/>,
+          tabBarIcon: ({focused, color }) => <Ionicons 
+            name={focused? "home" : "home-outline"} 
+            size = {25} 
+            color={color}/>,
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="addScreen"
         options={{
-          title: 'Post',
-          tabBarIcon: ({ color }) => <Ionicons name='home-outline' size = {25} color={color} />,
+          title: 'Create',
+          tabBarIcon: ({focused, color }) => <Ionicons 
+            name={focused? "add-circle" : "add-circle-outline"} 
+            size={30} 
+            color={color} 
+            />
+            
         }}
       />
       <Tabs.Screen
-        name="three"
-        options={{
-          title: 'Upload',
-          tabBarIcon: ({ color }) => <Ionicons name='home-outline' size = {25} color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="four"
+        name="profileScreen"
         options={{
           title: 'Profile',
-          tabBarIcon: ({ color }) => <Ionicons name='home-outline' size = {25} color={color} />,
+          tabBarIcon: ({ focused, color }) => <Ionicons 
+            name= {focused? "person" : "person-outline"} 
+            size = {25} 
+            color={color} />,
         }}
       />
     </Tabs>

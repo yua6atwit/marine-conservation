@@ -3,6 +3,7 @@ import { useFonts } from 'expo-font';
 import { router, Slot, useSegments } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
+import { LogBox } from 'react-native';
 import 'react-native-reanimated';
 
 export {
@@ -12,6 +13,13 @@ export {
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
+
+//ignore warning logs created by RenderHTML from native-react-render-html in-app
+LogBox.ignoreLogs([ 'Warning: TNodeChildrenRenderer:',
+  'Warning: MemoizedTNodeRenderer:',
+  'Warning: TRenderEngineProvider:'
+])
+
 
 export default function RootLayout() {
   //Add custom fonts

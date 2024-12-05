@@ -3,17 +3,17 @@ import { BackButton } from "./BackButton";
 import { Text } from "./Text";
 
 
-export const Header = ({title, showBackButton = true}:any) => {
+export const Header = ({title, showBackButton = true, onPress}:any) => {
     return (
         <View style={styles.container}>
             {
                 showBackButton && (
                     <View style = {styles.showBackButton}>
-                        <BackButton/>
+                        <BackButton onPress = {onPress}/>
                     </View>
                 )
             }
-            <Text type = 'heading1' >{title || ''}</Text>
+            <Text type = 'heading4' >{title || ''}</Text>
         </View>
     )
 }

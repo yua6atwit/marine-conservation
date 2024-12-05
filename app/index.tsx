@@ -16,7 +16,7 @@ export default function index() {
         {/* title */}
         <View style={{gap: 20}}>
           <Text type='title'>Home Screen</Text>
-          <Text type='heading1'>
+          <Text type='heading4'>
             Description: ajsidjo hiwhu dhwaih dwuagdyua guwagd gaywugd
           </Text>
         </View>
