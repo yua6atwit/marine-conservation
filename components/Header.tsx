@@ -1,11 +1,14 @@
-import { StyleSheet, View } from "react-native";
+import { hp } from "@/constants/helper";
+import { colors } from "@/constants/theme";
+import { StatusBar, StyleSheet, View } from "react-native";
 import { BackButton } from "./BackButton";
 import { Text } from "./Text";
 
 
-export const Header = ({title, showBackButton = true, onPress}:any) => {
+export const Header = ({color = colors().background, title, showBackButton = true, onPress}:any) => {
     return (
-        <View style={styles.container}>
+        <View style={[styles.container, {backgroundColor: color}]}>
+            <StatusBar backgroundColor={color}/>
             {
                 showBackButton && (
                     <View style = {styles.showBackButton}>
@@ -13,7 +16,7 @@ export const Header = ({title, showBackButton = true, onPress}:any) => {
                     </View>
                 )
             }
-            <Text type = 'heading4' >{title || ''}</Text>
+            <Text type = 'heading3' >{title || ''}</Text>
         </View>
     )
 }
@@ -23,9 +26,8 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'center',
-      marginTop: 5,
+      height: hp(5),
       gap: 10,
-      marginBottom: 10
     },
     showBackButton: {
         position: 'absolute',

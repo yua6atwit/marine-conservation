@@ -7,7 +7,6 @@ import { StyleSheet, View } from 'react-native';
 export default function AddScreen() {
   return (
     <ScreenWrapper>
-
       <View style = {styles.container}>
         <Button label='Post' onPress={() => router.push('/screens/postScreen')}/>
         <Button label='Upload' onPress={() => router.push('/screens/uploadScreen')}/>

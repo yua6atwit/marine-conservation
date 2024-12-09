@@ -1,4 +1,4 @@
-import { useTheme } from "@/constants/theme";
+import { colors } from "@/constants/theme";
 import React from "react";
 import { View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -10,14 +10,12 @@ export const ScreenWrapper= ({children}:any) => {
 
     const {top, bottom} = useSafeAreaInsets();
     //check top padding
-    const paddingTop = top>0 ? top+5 : 10;
+    const paddingTop = top>0 ? top+5 : 0;
   
-    // Accessing colors from the current theme
-    const colors = useTheme().colors;
     return(
       //Applying container style
       <View style={[
-        {backgroundColor: colors.background,
+        {backgroundColor: colors().background,
           flex: 1,
           paddingTop,
         },

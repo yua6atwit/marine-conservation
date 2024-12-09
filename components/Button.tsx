@@ -6,6 +6,7 @@ import { Text } from "./Text";
 
 //Define types for props
 type ButtonProps = {
+    type?: 'default' | 'light'
     label?: string,
     onPress?: () => void;
     loading?: boolean,
@@ -21,6 +22,7 @@ type ButtonProps = {
  * @returns styled button
  */
 export const Button = ({
+    type = 'default',
     label = 'button',
     onPress,
     loading = false,
@@ -30,8 +32,8 @@ export const Button = ({
     const shadowStyle = {
         //set shadow style
         shadowColor: colors().dark,
-        shadowOffset: {width: 0, height: 10},
-        shadowOpacity: 0.2,
+        shadowOffset: {width: 0, height: 2},
+        shadowOpacity: 0.5,
         shadowRadius: 8,
         elevation: 4
     }
@@ -48,11 +50,21 @@ export const Button = ({
         //apply button style
         <TouchableOpacity onPress={onPress}
         style= {[
-            {backgroundColor: colors().buttonBackground},
-            styles.button,
-            hasShadow && shadowStyle
+            type === 'default' ? [
+                {backgroundColor: colors().buttonBackground1},
+                styles.button,
+                hasShadow && shadowStyle
+            ]: undefined ,
+            type === 'light' ? [
+                {backgroundColor: colors().buttonBackground2},
+                styles.button,
+                hasShadow && shadowStyle
+            ]: undefined ,
+
             ]}>
+
             <Text type='buttonText'>{label}</Text>
+
         </TouchableOpacity>
     )
 }

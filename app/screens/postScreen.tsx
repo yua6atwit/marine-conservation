@@ -13,6 +13,7 @@ import { useVideoPlayer, VideoView } from 'expo-video';
 import React, { useRef, useState } from 'react';
 import { Alert, Image, Pressable, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
 
+
 export default function PostScreen() {
   const {user} = useAuth()
   const bodyRef = useRef('')
@@ -98,7 +99,9 @@ export default function PostScreen() {
 
       <View style = {styles.container}>
 
-        <ScrollView contentContainerStyle={{gap:100}}>
+        <ScrollView 
+          contentContainerStyle={{gap:100}}
+          showsVerticalScrollIndicator = {false}>
           {/* Text editor */}
           <RichTextEditor editorRef = {editorRef} 
           onChange = {(body: string) => bodyRef.current = body}
@@ -139,7 +142,7 @@ export default function PostScreen() {
           <View style = {styles.media}>
             <Text type='heading4'>Add to your post</Text>
 
-            {/* Icons */}
+            {/* Pressable icon */}
             <View style = {styles.mediaIcons}>
               <TouchableOpacity onPress={() => onPick()}>
                 <Ionicons name="image-outline" size={30} />

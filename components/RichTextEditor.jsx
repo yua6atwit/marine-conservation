@@ -13,12 +13,11 @@ export const RichTextEditor = ({editorRef, onChange}) => {
                 actions.setBold,
                 actions.setItalic,
                 actions.insertOrderedList,
-                actions.blockquote,
+                actions.insertBulletsList,
+                actions.checkboxList,
                 actions.alignLeft,
                 actions.alignCenter,
                 actions.alignRight,
-                actions.code,
-                actions.line,
                 actions.heading1,
                 actions.heading4
             ]}
@@ -26,7 +25,7 @@ export const RichTextEditor = ({editorRef, onChange}) => {
                 [actions.heading1]: ({tintColor}) => <Text style= {{color: tintColor}}>H1</Text>,
                 [actions.heading4]: ({tintColor}) => <Text style= {{color: tintColor}}>H4</Text>
             }}
-            style = {[styles.richBar, {backgroundColor: 'white'}, {borderColor: 'gray'}]}
+            style = {[styles.richBar, {backgroundColor: colors().background}, {borderColor: colors().placeholderText}]}
             selectedIconTint = {colors().tint}
             flatContainerStyle = {styles.flatStyle}
             editor = {editorRef}
@@ -35,7 +34,7 @@ export const RichTextEditor = ({editorRef, onChange}) => {
             <RichEditor
             ref={editorRef}
             containerStyle = {styles.rich}
-            editorStyle={[{color: colors().text}, {placeholderColor: 'gray'}]}
+            editorStyle={[{color: colors().text},{placeholderColor: colors().placeholderText}]}
             onChange={onChange}
             placeholder="Enter text here"
             />
@@ -55,6 +54,6 @@ const styles = StyleSheet.create({
     rich: {
         minHeight:300,
         flex:1,
-        padding: 5
+        padding: 5,
     },
 })

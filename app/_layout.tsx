@@ -17,7 +17,8 @@ SplashScreen.preventAutoHideAsync();
 //ignore warning logs created by RenderHTML from native-react-render-html in-app
 LogBox.ignoreLogs([ 'Warning: TNodeChildrenRenderer:',
   'Warning: MemoizedTNodeRenderer:',
-  'Warning: TRenderEngineProvider:'
+  'Warning: TRenderEngineProvider:',
+  'Warning: React has detected a change in the order of Hooks'
 ])
 
 

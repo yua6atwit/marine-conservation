@@ -6,14 +6,27 @@ import React from 'react';
 
 //Brand colors
 //soft orange #F89B5C
-//Redish-orange #F26200
+//orange #FF9933
+//darker red-orange #F26200
+//lighter red-orange #D96C4F
+
+//darkest #10282A
 //dark teal #0C3C54
-//bright green-blue #00CC99
 //slightly dark teal #1D697B
+
+//bright green-blue #00CC99
+//green-blue #59C1B4 
+
+//dark blue #082347
+//blue #4AA5BB
+//bright blue #0099FF
+
+//dark tan #DDC489
 //tan #E8D8B1
-//lighter teal #59C1B4
-//teal #4AA5BB
 //lighter tan #F4F2D8
+
+//slightly darker yellow #EDC421
+//yellow #FFDE59
 
 const tintColorLight = '#4AA5BB';
 const tintColorDark = '#F4F2D8';
@@ -26,11 +39,13 @@ const Colors = {
     text: '#000',
     title: 'black',
     placeholderText: 'gray',
-    dark: '#1D697B',
+    dark: '#10282A',
     background: 'white',
-    secondaryBackground: '#F4F2D8',
-    buttonBackground: button,
+    secondaryBackground: '#E8D8B1',
+    buttonBackground1: button,
+    buttonBackground2: '#D96C4F',
     link: link,
+    header: '#FFDE59',
     tint: tintColorLight,
     icon: '#687076',
     tabIconDefault: '#687076',

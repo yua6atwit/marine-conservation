@@ -25,7 +25,7 @@ export default function index() {
         <View style = {styles.footer}>
           <Button
             label='Getting Started'
-            onPress={() => router.push('/home')}
+            onPress={() => router.push('/signup')}
           />
           <View style = {styles.bottomTextContainer}>
             <Text>Already have an account?</Text>

@@ -1,6 +1,7 @@
 import { getPosts } from '@/components/database/PostDB';
 import { PostItem } from '@/components/PostItem';
 import { ScreenWrapper } from '@/components/ScreenWrapper';
+import { hp } from '@/constants/helper';
 import { useAuth } from '@/context/authContext';
 import React, { useEffect, useState } from 'react';
 import { FlatList, StyleSheet } from 'react-native';
@@ -29,7 +30,6 @@ export default function Home() {
 
   return (
     <ScreenWrapper>
-
       <FlatList
         data = {posts}
         showsVerticalScrollIndicator = {false}
@@ -42,14 +42,13 @@ export default function Home() {
           />
         }
       />
-
     </ScreenWrapper>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    height: hp(5),
     alignItems: 'center',
     justifyContent: 'center',
   },

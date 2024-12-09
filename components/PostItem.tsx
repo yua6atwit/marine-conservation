@@ -8,28 +8,19 @@ import { Text } from "./Text";
 export const PostItem = ({
   item, 
 }:any) => {
-  const shadowStyles = {
-    //set shadow style
-    shadowColor: 'gray',
-    shadowOffset: {width: 0, height: 2},
-    shadowOpacity: .4,
-    shadowRadius: 6,
-    elevation: 4
-  }
 
   //Format timestamp
-  const today = new Date();
   const date = item.dateUploaded.toDate();
   const dateUploaded = moment(date).format('l')
   const time = moment(date).fromNow(); 
 
   const openPostPage = () => {
-    router.push({pathname: '/PostPage', params: item})
+    router.push({pathname: '/screens/postPage', params: item})
   }
 
   return (
       
-    <View style = {[styles.container, shadowStyles ]}>
+    <View style = {[styles.container ]}>
       
       <View style={styles.header}>
         {/*User info and post upload date */}
@@ -81,15 +72,11 @@ export const PostItem = ({
 const styles = StyleSheet.create({
   container: {
     padding: 10,
-    paddingVertical: hp(1),
-    gap: hp(1),
-    marginBottom: hp(2),
+    paddingVertical: hp(3),
     marginHorizontal: wp(3),
     backgroundColor: 'white',
-    borderWidth: .5,
+    borderBottomWidth: .5,
     borderColor: 'gray',
-    borderRadius: 15,
-    borderCurve: 'continuous'
   },
   header: {
     flexDirection: 'row',

@@ -14,7 +14,7 @@ export const KeyboardView = ({children}:any) => {
             style = {{flex: 1}}
         >
             <ScrollView
-                style = {{flex: 1}}
+                
                 bounces = {false}
                 showsVerticalScrollIndicator = {false}
             >
