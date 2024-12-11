@@ -1,10 +1,11 @@
 import { auth, db } from "@/firebaseConfig";
+import { router } from "expo-router";
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { createContext, useContext, useEffect, useState } from "react";
 
 export const AuthContext = createContext();
-   
+
 export const AuthContextProvider = ({children}) => {
   const [user, setUser] = useState('');
   const [isAuthenticated, setIsAuth] = useState(undefined);
@@ -25,6 +26,7 @@ export const AuthContextProvider = ({children}) => {
     return unsub;
   },[])
 
+  //updates the user data
   const updateUserData = async (uid) => {
     const docRef = doc(db, 'users', uid)
     const docSnap = await getDoc(docRef);
@@ -35,6 +37,7 @@ export const AuthContextProvider = ({children}) => {
     }
   }
 
+  //login the user
   const login = async (email, password) => {
     try{
       const response =  await signInWithEmailAndPassword(auth, email, password)
@@ -47,20 +50,24 @@ export const AuthContextProvider = ({children}) => {
     }
   }
 
+  //Logout the user 
   const logout = async () => {
     try{
+
       await signOut(auth);
+      router.replace('/login')
+
       return {success: true}
     }catch(e){
       return {success: false, msg: e.message, error: e}
     }
   }
 
+  //Create a new user in the database
   const signup = async (email, password, username) => {
     try{
       const response = await createUserWithEmailAndPassword(auth, email, password)
       //console.log('response.user:', response?.user)
-
       await setDoc(doc(db, 'users', response?.user?.uid),
       {
         username,
@@ -84,6 +91,7 @@ export const AuthContextProvider = ({children}) => {
     </AuthContext.Provider>
   );
 }
+
 
 export const useAuth = () => {
   const value = useContext(AuthContext);

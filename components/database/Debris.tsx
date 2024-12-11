@@ -1,8 +1,7 @@
 import { db } from "@/firebaseConfig";
-import { addDoc, collection, doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
 
-
-
+// Define the expected structure of debris item data
 export type DebrisItem = {
   id: string,
   category: string,
@@ -13,7 +12,7 @@ export type DebrisItem = {
 
 export const createDebrisData = async (data : DebrisItem) => {
   try{
-
+    //create debris data with custom document id
     const docRef = await setDoc(doc(db, "debris", data.id), {
       id: data.id,
       category: data.category,
@@ -24,8 +23,8 @@ export const createDebrisData = async (data : DebrisItem) => {
   
     return {success: true}
   }catch(e){
-    console.log('createPost error', e)
-    return {success: false, msg: 'Could not create your post'}
+    console.log('createDebris error', e)
+    return {success: false, msg: 'Could not create your debris item'}
   }
 }
 
@@ -46,6 +45,7 @@ export const updateDebrisData = async ( data : DebrisItem) => {
   }
 }
 
+//TODO: implement get data from 'debris' database/collection
 export const getDebrisData = async (data : DebrisItem) => {
   const docRef = doc(db, 'debris', data.id);
   const docSnap = await getDoc(docRef);
@@ -58,70 +58,3 @@ export const getDebrisData = async (data : DebrisItem) => {
   console.log("No such document!");
   }
 }
-
-type Plastic = {
-    Bags?: number
-    Drinkbottles?: number 
-    BottlePlugs?: number 
-    PlasticRingOfPlugs?: number
-    FoodContainersLid?: number
-    DetergentBottles?: number
-    CosmeticProducts?: number
-    MotorOilPackaging?: number
-    Cutlery?: number
-    LollipopSticks?: number
-    CigaretteButts?: number
-    LightersAndCigaretteBoxes?: number
-    FootwearAndClothingParts?: number
-    DisposableGloves?: number
-    FishingTool?: number
-    Pergolas?: number
-    FLoats?: number
-    Ropes?: number 
-    StyrofoamBoxesPieces?: number
-    EarSticks?: number
-    ConstructionMaterial?: number
-    InsulationMaterial?: number
-    DiapersAndSanitaryPads?: number
-    DisposableMedicalMasks?: number
-    Other?: number
-}
-
-const plastic = () => {
-
-    const data: Plastic = {
-        Cutlery: 0,
-        LollipopSticks: 0,
-        CigaretteButts: 0,
-        LightersAndCigaretteBoxes: 0,
-        FootwearAndClothingParts: 0,
-        DisposableGloves: 0,
-        FishingTool: 0,
-        Pergolas: 0,
-        FLoats: 0,
-        Ropes: 0, 
-        StyrofoamBoxesPieces: 0,
-        EarSticks: 0,
-        ConstructionMaterial: 0,
-        InsulationMaterial: 0,
-        DiapersAndSanitaryPads: 0,
-        DisposableMedicalMasks: 0,
-        Other: 0
-    }
-
-    return data
-}
-
-export const createPost = async (debris : Plastic) => {
-    try{
-  
-      const docRef = await addDoc(collection(db, "Debris"), {
-        debris: debris
-      }); 
-    
-      return {success: true}
-    }catch(e){
-      console.log('createPost error', e)
-      return {success: false, msg: 'Could not create your post'}
-    }
-  }

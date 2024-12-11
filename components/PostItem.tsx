@@ -5,6 +5,8 @@ import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
 import { RenderHTML } from 'react-native-render-html';
 import { Text } from "./Text";
 
+
+//TODO: render photo/video
 export const PostItem = ({
   item, 
 }:any) => {
@@ -62,6 +64,7 @@ export const PostItem = ({
           </View>
 
           {/*TODO Render image or Video */}
+
         </View>
       </TouchableOpacity>
 

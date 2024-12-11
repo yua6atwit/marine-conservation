@@ -35,7 +35,7 @@ export default function PostScreen() {
     }
   }
 
-  //checks if file is local
+  //checks if file is a local file
   const isLocalFile = (file: any) => {
     if (!file) return null
     if(typeof file == 'object') return true;
@@ -61,9 +61,9 @@ export default function PostScreen() {
       return file.uri
     }
     
-    //No remote file location yet
-    // check image or video is a remote file
-    //return getFirebaseFileUrl(file)?.uri
+    //Currently there is no remote file location yet
+    //TODO: check image or video is a remote file
+    //return remote file
   }
 
   //Create player for video
@@ -72,12 +72,15 @@ export default function PostScreen() {
     player.play();
   });
 
+  //Submit button
   const onSubmit = async () => {
     if (!bodyRef.current && !file){
       Alert.alert('Post', 'Please fill at least one field')
       return
     }
     //console.log('two: user', user)
+
+    //set data
     let data : PostData = {
       image: file? file.uri : null,
       text: bodyRef.current,
@@ -98,13 +101,15 @@ export default function PostScreen() {
       <Header title = 'Create Post' onPress ={() => router.replace('/(tabs)/addScreen')}/>
 
       <View style = {styles.container}>
-
         <ScrollView 
           contentContainerStyle={{gap:100}}
-          showsVerticalScrollIndicator = {false}>
+          showsVerticalScrollIndicator = {false}
+        >
+
           {/* Text editor */}
-          <RichTextEditor editorRef = {editorRef} 
-          onChange = {(body: string) => bodyRef.current = body}
+          <RichTextEditor 
+            editorRef = {editorRef} 
+            onChange = {(body: string) => bodyRef.current = body}
           />
 
           {/*Show image or video from photos */}

@@ -52,7 +52,7 @@ const Colors = {
     tabIconSelected: tintColorLight,
     buttonText: 'white',
   },
-  //Dark theme is not set
+  //Dark theme is not implemented
   dark: {
     text: 'white',
     background: 'black',

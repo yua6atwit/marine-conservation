@@ -1,6 +1,7 @@
 import { Link, Stack } from 'expo-router';
 import { StyleSheet, View } from 'react-native';
 
+//TODO update not found screen
 export default function NotFoundScreen() {
   return (
     <>

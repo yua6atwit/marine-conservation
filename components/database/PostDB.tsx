@@ -17,13 +17,19 @@ export type Comments = {
 
 }
 
+/**
+ * Creates a post in Firebase Firestore
+ * @param post PostData
+ * @returns success status
+ */
 export const createPost = async (post : PostData) => {
   try{
-    //upload image
+    //TODO: upload image
     if(post.image && typeof post.image == 'object'){
-      //TODO
+    
     }
 
+    //Create post item
     const docRef = await addDoc(collection(db, "posts"), {
       dateUploaded: new Date(),
       user: post.user,
@@ -42,11 +48,16 @@ export const createPost = async (post : PostData) => {
   }
 }
 
-// Custom hook to fetch posts from Firestore
+/**
+ * Fetch posts from Firestore
+ * @returns success status and list of posts if true
+ */
 export const getPosts = async() => {
   try{
       const posts: PostData[] = []; // Initialize an empty array to store posts
       const postsRef = collection(db, "posts");
+
+      //limit posts fetched and order by latest posts
       const q = query(postsRef, orderBy('dateUploaded', 'desc'), limit(10));
       const querySnapshot = await getDocs(q);
   

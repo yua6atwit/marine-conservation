@@ -4,11 +4,15 @@ import { StatusBar, StyleSheet, View } from "react-native";
 import { BackButton } from "./BackButton";
 import { Text } from "./Text";
 
-
+/**
+ * Custom header
+ */
 export const Header = ({color = colors().background, title, showBackButton = true, onPress}:any) => {
     return (
         <View style={[styles.container, {backgroundColor: color}]}>
             <StatusBar backgroundColor={color}/>
+
+            {/*Backbutton */}
             {
                 showBackButton && (
                     <View style = {styles.showBackButton}>
@@ -16,6 +20,8 @@ export const Header = ({color = colors().background, title, showBackButton = tru
                     </View>
                 )
             }
+            
+            {/* title */}
             <Text type = 'heading3' >{title || ''}</Text>
         </View>
     )

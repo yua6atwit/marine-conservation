@@ -10,6 +10,7 @@ import { router } from 'expo-router';
 import React, { useRef, useState } from "react";
 import { Alert, Pressable, StyleSheet, View } from 'react-native';
 
+//TODO: add forgot password function
 export default function LoginScreen() {
   const {login} = useAuth();
   const [loading, setLoading] = useState(false);
@@ -18,6 +19,7 @@ export default function LoginScreen() {
   const emailRef= useRef("");
   const passwordRef = useRef("");
 
+  //login button
   const handleLogin = async () => {
     if (!emailRef.current || !passwordRef.current){
       Alert.alert('Login','Please fill all the fields');

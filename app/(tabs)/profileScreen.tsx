@@ -4,8 +4,10 @@ import { Text } from '@/components/Text';
 import { useAuth } from '@/context/authContext';
 import { StyleSheet, View } from 'react-native';
 
+//TODO: update UI design
 export default function Profile() {
   const {logout, user } = useAuth();
+
   return (
     <ScreenWrapper>
       <Text type='heading1'>{user.username}</Text>

@@ -6,7 +6,9 @@ import { useAuth } from '@/context/authContext';
 import React, { useEffect, useState } from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 
+//Loading post limit
 var limit = 0;
+
 export default function Home() {
   const { user } = useAuth();
   const [posts, setPosts] = useState<any[]>()
@@ -20,6 +22,7 @@ export default function Home() {
     limit = limit + 10;
 
     //console.log('fetching posts:', limit)
+    //gets the posts in the database
     let result = await getPosts();
 
     if (result.success){
@@ -30,6 +33,8 @@ export default function Home() {
 
   return (
     <ScreenWrapper>
+
+      {/* Shows the posts */}
       <FlatList
         data = {posts}
         showsVerticalScrollIndicator = {false}

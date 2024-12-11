@@ -1,7 +1,6 @@
 
-//Contains all the descriptions of the debris items and the catagories
-
-export const debrisCatagories = {
+//Contains all the descriptions of the debris items and the categories
+export const debrisCategories = {
     plastic: 'plastic',
     tire: 'tire',
     cloth: 'cloth',

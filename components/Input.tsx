@@ -13,6 +13,7 @@ type Icon = {
  * Custom TextInput component
  * 
  * @param icon optional ionicon name, if no icon, an icon will not be displayed
+ * @param props TextInputProps component
  * @returns styled TextInput 
  */
 export const Input = ({icon,...props}: Icon & TextInputProps) => {
@@ -33,30 +34,36 @@ export const Input = ({icon,...props}: Icon & TextInputProps) => {
     return (
         //apply styles
         <View style = {[styles.container, {borderColor: colors().tint}]}>
+            
+            {/* icon */}
             {
                 <Ionicons 
-                name={getIconName()} 
-                size={24} 
-                color="gray" 
-            />
+                    name={getIconName()} 
+                    size={24} 
+                    color="gray" 
+                />
             }
+            {/* text input */}
             <TextInput
-            style = {{flex:1, fontSize: hp(1.7), fontFamily: 'RedHatDisplay'}}
-            placeholderTextColor={colors().placeholderText}
-            {...props}
+                style = {{flex:1, fontSize: hp(1.7), fontFamily: 'RedHatDisplay'}}
+                placeholderTextColor={colors().placeholderText}
+                {...props}
             />
         </View>
     )
 }
 
+
+//input props for different input formats
 type InputProps = {
     label: string
     borderBottom? : boolean
 }
 
 /**
- * Custom TextInput component
+ * Custom TextInput component 
  * 
+* @param label test above where user enters input
  * @returns styled TextInput for forms
  */
 export const InputUnderline = ({label,...props}: InputProps & TextInputProps) => {
@@ -79,9 +86,9 @@ export const InputUnderline = ({label,...props}: InputProps & TextInputProps) =>
 
 
 /**
- * Custom TextInput component
- * 
- * @returns styled TextInput for forms
+ * Custom TextInput component for getting user input for debris item
+ * @param label test before the input (debris description)
+ * @returns styled TextInput
  */
 export const InputDebris = ({label, borderBottom = false,...props}: InputProps & TextInputProps) => {
     

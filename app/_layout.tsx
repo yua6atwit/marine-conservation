@@ -14,7 +14,7 @@ export {
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
-//ignore warning logs created by RenderHTML from native-react-render-html in-app
+//ignore warning logs created by RenderHTML and order of hooks from native-react-render-html in-app
 LogBox.ignoreLogs([ 'Warning: TNodeChildrenRenderer:',
   'Warning: MemoizedTNodeRenderer:',
   'Warning: TRenderEngineProvider:',
@@ -56,7 +56,7 @@ const RootLayoutNav = () => {
     const inApp = segments[0] == '(tabs)';
 
     if(isAuthenticated && !inApp){
-      //redirect to home
+      //redirect to home screen
       router.replace('/(tabs)/home')
     } 
   }, [isAuthenticated])

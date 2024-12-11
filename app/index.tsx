@@ -5,6 +5,8 @@ import { hp, wp } from '@/constants/helper';
 import { useRouter } from 'expo-router';
 import { Image, Pressable, StyleSheet, View } from 'react-native';
 
+
+//TODO: update UI design or (change description and image)
 export default function index() {
   const router = useRouter();
   return (

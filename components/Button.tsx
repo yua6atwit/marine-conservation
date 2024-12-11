@@ -4,7 +4,7 @@ import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { Loading } from "./Loading";
 import { Text } from "./Text";
 
-//Define types for props
+//Define structure for button props
 type ButtonProps = {
     type?: 'default' | 'light'
     label?: string,

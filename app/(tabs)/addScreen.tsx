@@ -3,8 +3,9 @@ import { ScreenWrapper } from '@/components/ScreenWrapper';
 import { router } from 'expo-router';
 import { StyleSheet, View } from 'react-native';
 
-
+//TODO update the UI design
 export default function AddScreen() {
+
   return (
     <ScreenWrapper>
       <View style = {styles.container}>

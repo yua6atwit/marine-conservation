@@ -6,22 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="dd296179-ca3d-45a7-b31e-50d666717768" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.expo/devices.json" beforeDir="false" afterPath="$PROJECT_DIR$/.expo/devices.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.expo/types/router.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.expo/types/router.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(tabs)/addScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/addScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(tabs)/home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/catagoryScreens/glassCeramic.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/catagoryScreens/medicalWaste.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/catagoryScreens/metal.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/catagoryScreens/paper.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/catagoryScreens/plastic.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/catagoryScreens/processedWood.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/catagoryScreens/tire.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/screens/catagories.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/screens/uploadScreen.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/database/Debris.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/database/Debris.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/profileScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/profileScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(uploadCleanUp)/catagories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(uploadCleanUp)/catagories.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/+not-found.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/+not-found.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/screens/postPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/postPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/context/authContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/context/authContext.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

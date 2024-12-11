@@ -1,16 +1,18 @@
-import { Header } from "@/components/Header";
+import { BackButton } from "@/components/BackButton";
 import { ScreenWrapper } from "@/components/ScreenWrapper";
 import { hp } from "@/constants/helper";
 import { useLocalSearchParams } from "expo-router";
 import { StyleSheet, View } from "react-native";
 
 
+//Screen when user opens/taps a post in home screen
+//TODO implement post page
 export default function PostPage() {
     const item = useLocalSearchParams();
 
     return(
         <ScreenWrapper>
-            <Header title = {item.username}/>
+            <BackButton/>
             <View>
             </View>
         </ScreenWrapper>

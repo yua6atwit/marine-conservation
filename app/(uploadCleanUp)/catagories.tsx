@@ -4,7 +4,7 @@ import { DebrisItem } from "@/components/database/Debris";
 import { InputDebris } from "@/components/Input";
 import { ScreenWrapper } from "@/components/ScreenWrapper";
 import { Text } from "@/components/Text";
-import { debrisCatagories, debrisDescription } from "@/constants/debrisDescription";
+import { debrisCategories, debrisDescription } from "@/constants/debrisDescription";
 import { hp, wp } from "@/constants/helper";
 import { useState } from "react";
 import { Alert, ScrollView, StyleSheet, View } from "react-native";
@@ -55,29 +55,30 @@ export default function catagories() {
         const formatedData : DebrisItem[] = [];
 
         const getCategory = () => {
-            //switch case for getting icon names
+            //switch case for getting  gategory names
             switch (category) {
-                case debrisCatagories.plastic:
+                case debrisCategories.plastic:
                     return 'plastic'; 
-                case debrisCatagories.tire:
+                case debrisCategories.tire:
                     return 'tires'
-                case  debrisCatagories.cloth:
+                case  debrisCategories.cloth:
                     return 'cloth'
-                case  debrisCatagories.paper:
+                case  debrisCategories.paper:
                     return 'paper'
-                case  debrisCatagories.wood:
+                case  debrisCategories.wood:
                     return 'processedWood'
-                case  debrisCatagories.metal:
+                case  debrisCategories.metal:
                     return 'metal';
-                case  debrisCatagories.glassCeramic:
+                case  debrisCategories.glassCeramic:
                     return 'glassCeramic';
-                case  debrisCatagories.mediacalWaste:
+                case  debrisCategories.mediacalWaste:
                     return "medicalWaste";
                 default:
                     return 'plastic'; 
             }
         };
-    
+        
+        //for loop to format the data as DebrisItem
         for (var index in arr) {
             const data : DebrisItem = {
                 id: '100000' + index, // indexes: 0, 1, 2, 3
@@ -91,7 +92,9 @@ export default function catagories() {
     }
 
     const onSubmit = async () => {
-        const plasticList = formatData(plastics, debrisCatagories.plastic)
+        //TODO implement submit button
+        //currently testing formatData
+        const plasticList = formatData(plastics, debrisCategories.plastic)
         console.log(plasticList[2])
     }
 
@@ -432,6 +435,8 @@ export default function catagories() {
                     />
                 </Collapsible>
             </ScrollView>
+
+            {/*Footer */}
             <View style = {styles.footer}>
                 <View style = {{flexDirection: 'row', gap: 10}}>
                     <Text type= 'heading4'>Total Number of items:</Text>

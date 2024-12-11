@@ -39,6 +39,7 @@ export const Text = ({
 
 // Static styles for text types
 // **Fonts are static**: The font family, weight, and style are predefined for each type and should not change dynamically.
+// see assets for fonts 
 const styles = StyleSheet.create({
   title: {
     fontFamily: 'OpenSans',

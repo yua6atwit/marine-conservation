@@ -13,6 +13,8 @@ export function Collapsible({ children, title }: PropsWithChildren & { title: st
         style={[styles.heading]}
         onPress={() => setIsOpen((value) => !value)}
         activeOpacity={0.8}>
+
+        {/* icon */}
         <Ionicons
           name="chevron-forward"
           size={18}
@@ -20,7 +22,9 @@ export function Collapsible({ children, title }: PropsWithChildren & { title: st
           color={colors().icon}
           style={{ transform: [{ rotate: isOpen ? '90deg' : '0deg' }] }}
         />
+        {/* title */}
         <Text type='heading3'>{title}</Text>
+        
       </TouchableOpacity>
       {isOpen && <View style={styles.content}>{children}</View>}
     </View>
