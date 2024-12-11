@@ -8,23 +8,19 @@
       <change beforePath="$PROJECT_DIR$/.expo/devices.json" beforeDir="false" afterPath="$PROJECT_DIR$/.expo/devices.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.expo/types/router.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/.expo/types/router.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/_layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(tabs)/addScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/addScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(tabs)/home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/+not-found.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/+not-found.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/PostPage.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/screens/postScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/postScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/screens/uploadScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/uploadScreen.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Input.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/KeyboardView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/KeyboardView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/PostItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/PostItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/RichTextEditor.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/RichTextEditor.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ScreenWrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ScreenWrapper.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Text.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Text.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/constants/theme.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catagoryScreens/glassCeramic.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catagoryScreens/medicalWaste.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catagoryScreens/metal.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catagoryScreens/paper.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catagoryScreens/plastic.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catagoryScreens/processedWood.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/catagoryScreens/tire.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/screens/catagories.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/screens/uploadScreen.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/database/Debris.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/database/Debris.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,6 +51,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;ToolWindow.Running Devices.ShowToolbar&quot;: &quot;false&quot;,
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;com.android.tools.idea.streaming.zoom.toolbar.visible&quot;: &quot;false&quot;,

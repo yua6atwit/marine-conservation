@@ -17,9 +17,9 @@ export default function Home() {
 
   const getPostsList = async() => {
     //call the api here
-    limit = limit + 0;
+    limit = limit + 10;
 
-    console.log('fetching posts:', limit)
+    //console.log('fetching posts:', limit)
     let result = await getPosts();
 
     if (result.success){

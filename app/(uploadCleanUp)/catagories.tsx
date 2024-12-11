@@ -1,9 +1,10 @@
 import { Button } from "@/components/Button";
 import { Collapsible } from "@/components/Collapsible";
-import { Header } from "@/components/Header";
+import { DebrisItem } from "@/components/database/Debris";
 import { InputDebris } from "@/components/Input";
 import { ScreenWrapper } from "@/components/ScreenWrapper";
 import { Text } from "@/components/Text";
+import { debrisCatagories, debrisDescription } from "@/constants/debrisDescription";
 import { hp, wp } from "@/constants/helper";
 import { useState } from "react";
 import { Alert, ScrollView, StyleSheet, View } from "react-native";
@@ -12,13 +13,15 @@ var totalItems = 0
 var totalWeight = 0
 
 export default function catagories() {
+    //Initialize array of items to 0
+    //Last item contains total weight
     const [plastics, setPlastics] = useState(new Array(25).fill(0))
     const [tires, setTires] = useState(new Array(7).fill(0))
     const [cloths, setCloths] = useState(new Array(7).fill(0))
     const [papers, setPapers] = useState(new Array(8).fill(0))
     const [processedWoods, setProcessedWoods] = useState(new Array(7).fill(0))
     const [metals, setMetals] = useState(new Array(11).fill(0))
-    const [glassCeramices, setGlassCeramices] = useState(new Array(8).fill(0))
+    const [glassCeramics, setGlassCeramics] = useState(new Array(8).fill(0))
     const [medicalWastes, setMedicalWastes] = useState(new Array(3).fill(0))
 
     // Handle the change for a specific index
@@ -26,6 +29,7 @@ export default function catagories() {
         // Copy the array to avoid direct mutation
         const updatedInputs = [...arr];
 
+        //Error if user entered a letter
         if (Number.isNaN(Number(text))) {
             Alert.alert('Collected Trash', 'Please enter a number')
             text = '0'
@@ -46,342 +50,383 @@ export default function catagories() {
         return updatedInputs
     }
 
-    const onSubmit = () => {
+    //Formats data in to a list of debris Items
+    const formatData = (arr : any[], category: string) => {
+        const formatedData : DebrisItem[] = [];
 
+        const getCategory = () => {
+            //switch case for getting icon names
+            switch (category) {
+                case debrisCatagories.plastic:
+                    return 'plastic'; 
+                case debrisCatagories.tire:
+                    return 'tires'
+                case  debrisCatagories.cloth:
+                    return 'cloth'
+                case  debrisCatagories.paper:
+                    return 'paper'
+                case  debrisCatagories.wood:
+                    return 'processedWood'
+                case  debrisCatagories.metal:
+                    return 'metal';
+                case  debrisCatagories.glassCeramic:
+                    return 'glassCeramic';
+                case  debrisCatagories.mediacalWaste:
+                    return "medicalWaste";
+                default:
+                    return 'plastic'; 
+            }
+        };
+    
+        for (var index in arr) {
+            const data : DebrisItem = {
+                id: '100000' + index, // indexes: 0, 1, 2, 3
+                category: category,
+                description: debrisDescription[getCategory()][index],
+                collected: arr[index],
+            }
+            formatedData.push(data)
+        }
+        return formatedData
+    }
+
+    const onSubmit = async () => {
+        const plasticList = formatData(plastics, debrisCatagories.plastic)
+        console.log(plasticList[2])
     }
 
     return(
         <ScreenWrapper>
-            <Header title = 'Collected Trash' />
+            
             <ScrollView
                 showsVerticalScrollIndicator = {false}
-                style = {{}}
+                style = {{paddingTop: 90}}
             >
                 {/*Catagories */}
                 <Collapsible title='Plastic'>
                     <InputDebris 
-                        label = 'Bags including pieces:'
+                        label = {debrisDescription.plastic[0] + ':'}
                         onChangeText = {value => setPlastics(handleOnChangeText(value, 0, plastics))}
                     />
                     <InputDebris 
-                        label = 'Drink bottles:'
+                        label = {debrisDescription.plastic[1] + ':'}
                         onChangeText = {value => setPlastics(handleOnChangeText(value, 1, plastics))}
                     />
                     <InputDebris 
-                        label = 'Bottle plugs:'
+                        label = {debrisDescription.plastic[2] + ':'}
                         onChangeText = {value => setPlastics(handleOnChangeText(value, 2, plastics))}
                     />
                     <InputDebris 
-                        label = 'Plastic ring of plugs:'
+                        label = {debrisDescription.plastic[3] + ':'}
                         onChangeText = {value => setPlastics(handleOnChangeText(value, 3, plastics))}
                     />
                     <InputDebris 
-                        label = 'Food containers and lids:'
+                        label = {debrisDescription.plastic[4] + ':'}
                         onChangeText = {value => setPlastics(handleOnChangeText(value, 4, plastics))}
                     />
                     <InputDebris 
-                        label = 'Cosmetic products:'
+                        label = {debrisDescription.plastic[5] + ':'}
                         onChangeText = {value => setPlastics(handleOnChangeText(value, 5, plastics))}
                     />
                     <InputDebris 
-                        label = 'Motor oil packaging (lubricants, oils, greases):'
+                        label = {debrisDescription.plastic[6] + ':'}
                         onChangeText = {value => setPlastics(handleOnChangeText(value, 6, plastics))}
                     />
                     <InputDebris 
-                        label = 'Cutlery (glasses, cutlery, cups, straws):'
+                        label = {debrisDescription.plastic[7] + ':'}
                         onChangeText = {value => setPlastics(handleOnChangeText(value, 7, plastics))}
                     />
                     <InputDebris 
-                        label = 'Lollipop sticks:'
+                        label = {debrisDescription.plastic[8] + ':'}
                         onChangeText = {value => setPlastics(handleOnChangeText(value, 8, plastics))}
                     />
                     <InputDebris 
-                        label = 'Cigarette butts:'
+                        label = {debrisDescription.plastic[9] + ':'}
                         onChangeText = {value => setPlastics(handleOnChangeText(value, 9, plastics))}
                     />
                     <InputDebris 
-                        label = 'Lighters and plastic cigarette boxes:'
+                        label = {debrisDescription.plastic[10] + ':'}
                         onChangeText = {value => setPlastics(handleOnChangeText(value, 10, plastics))}
                     />
                     <InputDebris 
-                        label = 'Footwear and clothing (plastic parts):'
+                        label = {debrisDescription.plastic[11] + ':'}
                         onChangeText = {value => setPlastics(handleOnChangeText(value, 11, plastics))} 
                     />
                     <InputDebris 
-                        label = 'Disposable gloves:'
+                        label = {debrisDescription.plastic[12] + ':'}
                         onChangeText = {value => setPlastics(handleOnChangeText(value, 12, plastics))} 
                     />
                     <InputDebris 
-                        label = 'Fishing tool:'
+                        label = {debrisDescription.plastic[13] + ':'}
                         onChangeText = {value => setPlastics(handleOnChangeText(value, 13, plastics))} 
                     />
                     <InputDebris 
-                        label = 'Pergolas:'
+                        label = {debrisDescription.plastic[14] + ':'}
                         onChangeText = {value => setPlastics(handleOnChangeText(value, 14, plastics))} 
                     />
                     <InputDebris 
-                        label = 'Floats (for fishing tools):'
+                        label = {debrisDescription.plastic[15] + ':'}
                         onChangeText = {value => setPlastics(handleOnChangeText(value, 15, plastics))} 
                     />
                     <InputDebris 
-                        label = 'Ropes:'
+                        label = {debrisDescription.plastic[16] + ':'}
                         onChangeText = {value => setPlastics(handleOnChangeText(value, 16, plastics))} 
                     />
                     <InputDebris 
-                        label = 'Styrofoam boxes and pieces:'
+                        label = {debrisDescription.plastic[17] + ':'}
                         onChangeText = {value => setPlastics(handleOnChangeText(value, 17, plastics))} 
                     />
                     <InputDebris 
-                        label = 'Ear sticks:'
+                        label = {debrisDescription.plastic[18] + ':'}
                         onChangeText = {value => setPlastics(handleOnChangeText(value, 18, plastics))} 
                     />
                     <InputDebris 
-                        label = 'Construction material (bags, tarpaulins...):'
+                        label = {debrisDescription.plastic[19] + ':'}
                         onChangeText = {value => setPlastics(handleOnChangeText(value, 19, plastics))} 
                     />
                     <InputDebris 
-                        label = 'Construction materials for insulation:'
+                        label = {debrisDescription.plastic[20] + ':'}
                         onChangeText = {value => setPlastics(handleOnChangeText(value, 20, plastics))} 
                     />
                     <InputDebris 
-                        label = 'Diapers and sanitary pads:'
+                        label = {debrisDescription.plastic[21] + ':'}
                         onChangeText = {value => setPlastics(handleOnChangeText(value, 21, plastics))} 
                     />
                     <InputDebris 
-                        label = 'Disposable medical masks:'
+                        label = {debrisDescription.plastic[22] + ':'}
                         onChangeText = {value => setPlastics(handleOnChangeText(value, 22, plastics))} 
                     />
                     <InputDebris 
-                        label = 'Other plastic items:'
+                        label = {debrisDescription.plastic[23] + ':'}
                         onChangeText = {value => setPlastics(handleOnChangeText(value, 23, plastics))} 
                     />
                     <InputDebris 
-                        label = 'Total weight of items (kg):'
+                        label = {debrisDescription.plastic[24] + ':'}
                         onChangeText = {value => setPlastics(handleOnChangeText(value, 24, plastics))} 
                         borderBottom = {true}
                     />
                 </Collapsible>
                 <Collapsible title='Tire'>
                     <InputDebris 
-                        label = 'Balls:'
+                        label = {debrisDescription.tires[0] + ':'}
                         onChangeText = {value => setTires(handleOnChangeText(value, 0, tires))}
                     />
                     <InputDebris 
-                        label = 'Balloons:'
+                        label = {debrisDescription.tires[1] + ':'}
                         onChangeText = {value => setTires(handleOnChangeText(value, 1, tires))}
                     />
                     <InputDebris 
-                        label = 'Kitchen rubber band:'
+                        label = {debrisDescription.tires[2] + ':'}
                         onChangeText = {value => setTires(handleOnChangeText(value, 2, tires))}
                     />
                     <InputDebris 
-                        label = 'Tires and tubes:'
+                        label = {debrisDescription.tires[3] + ':'}
                         onChangeText = {value => setTires(handleOnChangeText(value, 3, tires))}
                     />
                     <InputDebris 
-                        label = 'Boots:'
+                        label = {debrisDescription.tires[4] + ':'}
                         onChangeText = {value => setTires(handleOnChangeText(value, 4, tires))}
                     />
                     <InputDebris 
-                        label = 'Other rubber items:'
+                        label = {debrisDescription.tires[5] + ':'}
                         onChangeText = {value => setTires(handleOnChangeText(value, 5, tires))}
                     />
                     <InputDebris 
-                        label = 'Total weight of items (kg):'
+                        label = {debrisDescription.tires[6] + ':'}
                         onChangeText = {value => setTires(handleOnChangeText(value, 6, tires))}
                         borderBottom = {true}
                     />
                 </Collapsible>
                 <Collapsible title='Cloth'>
                     <InputDebris 
-                        label = 'Clothes, hats, kitchen and bath towels:'
+                        label = {debrisDescription.cloth[0] + ':'}
                         onChangeText = {value => setCloths(handleOnChangeText(value, 0, cloths))}
                     />
                     <InputDebris 
-                        label = 'Shoes and sandals (for example made of leather or fabric) without a sole if it is made of another material:'
+                        label = {debrisDescription.cloth[1] + ':'}
                         onChangeText = {value => setCloths(handleOnChangeText(value, 1, cloths))}
                     />
                     <InputDebris 
-                        label = 'Carpets:'
+                        label = {debrisDescription.cloth[2] + ':'}
                         onChangeText = {value => setCloths(handleOnChangeText(value, 2, cloths))}
                     />
                     <InputDebris 
-                        label = 'Ropes and nets:'
+                        label = {debrisDescription.cloth[3] + ':'}
                         onChangeText = {value => setCloths(handleOnChangeText(value, 3, cloths))}
                     />
                     <InputDebris 
-                        label = 'Bags or sacks:'
+                        label = {debrisDescription.cloth[4] + ':'}
                         onChangeText = {value => setCloths(handleOnChangeText(value, 4, cloths))}
                     />
                     <InputDebris 
-                        label = 'Other clothing items:'
+                        label = {debrisDescription.cloth[5] + ':'}
                         onChangeText = {value => setCloths(handleOnChangeText(value, 5, cloths))}
                     />
                     <InputDebris 
-                        label = 'Total weight of items (kg):'
+                        label = {debrisDescription.cloth[6] + ':'}
                         onChangeText = {value => setCloths(handleOnChangeText(value, 6, cloths))}
                         borderBottom = {true}
                     />
                 </Collapsible>
                 <Collapsible title='Paper'>
                     <InputDebris 
-                        label = 'Paper bags:'
+                        label = {debrisDescription.paper[0] + ':'}
                         onChangeText = {value => setPapers(handleOnChangeText(value, 0, papers))}
                     />
                     <InputDebris 
-                        label = 'Boxes and cartons and their pieces :'
+                        label = {debrisDescription.paper[1] + ':'}
                         onChangeText = {value => setPapers(handleOnChangeText(value, 1, papers))}
                     />
                     <InputDebris 
-                        label = 'Carton of milk, juice, etc:'
+                        label = {debrisDescription.paper[2] + ':'}
                         onChangeText = {value => setPapers(handleOnChangeText(value, 2, papers))}
                     />
                     <InputDebris 
-                        label = 'Cigarette packs:'
+                        label = {debrisDescription.paper[3] + ':'}
                         onChangeText = {value => setPapers(handleOnChangeText(value, 3, papers))}
                     />
                     <InputDebris 
-                        label = 'Packaging for food, drinks and other foodstuffs:'
+                        label = {debrisDescription.paper[4] + ':'}
                         onChangeText = {value => setPapers(handleOnChangeText(value, 4, papers))}
                     />
                     <InputDebris 
-                        label = 'Newspapers and magazines:'
+                        label = {debrisDescription.paper[5] + ':'}
                         onChangeText = {value => setPapers(handleOnChangeText(value, 5, papers))}
                     />
                     <InputDebris 
-                        label = 'Other paper items:'
+                        label = {debrisDescription.paper[6] + ':'}
                         onChangeText = {value => setPapers(handleOnChangeText(value, 6, papers))}
                     />
                     <InputDebris 
-                        label = 'Total weight of items (kg):'
+                        label = {debrisDescription.paper[7] + ':'}
                         onChangeText = {value => setPapers(handleOnChangeText(value, 7, papers))}
                         borderBottom = {true}
                     />
                 </Collapsible>
                 <Collapsible title='Processed Wood'>
                     <InputDebris 
-                        label = 'Popsicle sticks, toothpicks, forks or another cutlery:'
+                        label = {debrisDescription.processedWood[0] + ':'}
                         onChangeText = {value => setProcessedWoods(handleOnChangeText(value, 0, processedWoods))}
                     />
                     <InputDebris 
-                        label = 'Wooden boxes and/or pieces thereof:'
+                        label = {debrisDescription.processedWood[1] + ':'}
                         onChangeText = {value => setProcessedWoods(handleOnChangeText(value, 1, processedWoods))}
                     />
                     <InputDebris 
-                        label = 'Cork:'
+                        label = {debrisDescription.processedWood[2] + ':'}
                         onChangeText = {value => setProcessedWoods(handleOnChangeText(value, 2, processedWoods))}
                     />
                     <InputDebris 
-                        label = 'Palettes:'
+                        label = {debrisDescription.processedWood[3] + ':'}
                         onChangeText = {value => setProcessedWoods(handleOnChangeText(value, 3, processedWoods))}
                     />
                     <InputDebris 
-                        label = 'Brushes and pencils:'
+                        label = {debrisDescription.processedWood[4] + ':'}
                         onChangeText = {value => setProcessedWoods(handleOnChangeText(value, 4, processedWoods))}
                     />
                     <InputDebris 
-                        label = 'Other pieces of processed wood:'
+                        label = {debrisDescription.processedWood[5] + ':'}
                         onChangeText = {value => setProcessedWoods(handleOnChangeText(value, 5, processedWoods))}
                     />
                     <InputDebris 
-                        label = 'Total weight of items (kg):'
+                        label = {debrisDescription.processedWood[6] + ':'}
                         onChangeText = {value => setProcessedWoods(handleOnChangeText(value, 6, processedWoods))}
                         borderBottom = {true}
                     />
                 </Collapsible>
                 <Collapsible title='Metal'>
                     <InputDebris 
-                        label = 'Drink cans:'
+                        label = {debrisDescription.metal[0] + ':'}
                         onChangeText = {value => setMetals(handleOnChangeText(value, 0, metals))}
                     />
                     <InputDebris 
-                        label = 'Canned food:'
+                        label = {debrisDescription.metal[1] + ':'}
                         onChangeText = {value => setMetals(handleOnChangeText(value, 1, metals))}
                     />
                     <InputDebris 
-                        label = 'Cutlery and pots:'
+                        label = {debrisDescription.metal[2] + ':'}
                         onChangeText = {value => setMetals(handleOnChangeText(value, 2, metals))}
                     />
                     <InputDebris 
-                        label = 'Aluminum foils and packages:'
+                        label = {debrisDescription.metal[3] + ':'}
                         onChangeText = {value => setMetals(handleOnChangeText(value, 3, metals))}
                     />
                     <InputDebris 
-                        label = 'Bottle caps and lids:'
+                        label = {debrisDescription.metal[4] + ':'}
                         onChangeText = {value => setMetals(handleOnChangeText(value, 4, metals))}
                     />
                     <InputDebris 
-                        label = 'Barrels, buckets, paint cans and other large containers:'
+                        label = {debrisDescription.metal[5] + ':'}
                         onChangeText = {value => setMetals(handleOnChangeText(value, 5, metals))}
                     />
                     <InputDebris 
-                        label = 'Fishing tools (leads and hooks):'
+                        label = {debrisDescription.metal[6] + ':'}
                         onChangeText = {value => setMetals(handleOnChangeText(value, 6, metals))}
                     />
                     <InputDebris 
-                        label = 'Construction material (wires, cables, metal nets, barbed wire...):'
+                        label = {debrisDescription.metal[7] + ':'}
                         onChangeText = {value => setMetals(handleOnChangeText(value, 7, metals))}
                     />
                     <InputDebris 
-                        label = 'Household appliances and other electronic material (refrigerators, washing machines, batteries, etc.):'
+                        label = {debrisDescription.metal[8] + ':'}
                         onChangeText = {value => setMetals(handleOnChangeText(value, 8, metals))}
                     />
                     <InputDebris 
-                        label = 'Other metal items:'
+                        label = {debrisDescription.metal[9] + ':'}
                         onChangeText = {value => setMetals(handleOnChangeText(value, 9, metals))}
                     />
                     <InputDebris 
-                        label = 'Total weight of items (kg):'
+                        label = {debrisDescription.metal[10] + ':'}
                         onChangeText = {value => setMetals(handleOnChangeText(value, 10, metals))}
                         borderBottom = {true}
                     />
                 </Collapsible>
                 <Collapsible title='Glass and Ceramics'>
                     <InputDebris 
-                        label = 'Glass bottles:'
-                        onChangeText = {value => setGlassCeramices(handleOnChangeText(value, 0, glassCeramices))}
+                        label = {debrisDescription.glassCeramic[0] + ':'}
+                        onChangeText = {value => setGlassCeramics(handleOnChangeText(value, 0, glassCeramics))}
                     />
                     <InputDebris 
-                        label = 'Food jars and glasses:'
-                        onChangeText = {value => setGlassCeramices(handleOnChangeText(value, 1, glassCeramices))}
+                        label = {debrisDescription.glassCeramic[1] + ':'}
+                        onChangeText = {value => setGlassCeramics(handleOnChangeText(value, 1, glassCeramics))}
                     />
                     <InputDebris 
-                        label = 'Ceramic plates and cups:'
-                        onChangeText = {value => setGlassCeramices(handleOnChangeText(value, 2, glassCeramices))}
+                        label = {debrisDescription.glassCeramic[2] + ':'}
+                        onChangeText = {value => setGlassCeramics(handleOnChangeText(value, 2, glassCeramics))}
                     />
                     <InputDebris 
-                        label = 'Light bulbs, neon bulbs:'
-                        onChangeText = {value => setGlassCeramices(handleOnChangeText(value, 3, glassCeramices))}
+                        label = {debrisDescription.glassCeramic[3] + ':'}
+                        onChangeText = {value => setGlassCeramics(handleOnChangeText(value, 3, glassCeramics))}
                     />
                     <InputDebris 
-                        label = 'Building material (bricks, cement, pipes):'
-                        onChangeText = {value => setGlassCeramices(handleOnChangeText(value, 4, glassCeramices))}
+                        label = {debrisDescription.glassCeramic[4] + ':'}
+                        onChangeText = {value => setGlassCeramics(handleOnChangeText(value, 4, glassCeramics))}
                     />
                     <InputDebris 
-                        label = 'Pieces of glass and ceramics:'
-                        onChangeText = {value => setGlassCeramices(handleOnChangeText(value, 5, glassCeramices))}
+                        label = {debrisDescription.glassCeramic[5] + ':'}
+                        onChangeText = {value => setGlassCeramics(handleOnChangeText(value, 5, glassCeramics))}
                     />
                     <InputDebris 
-                        label = 'Other items made of glass or ceramics:'
-                        onChangeText = {value => setGlassCeramices(handleOnChangeText(value, 6, glassCeramices))}
+                        label = {debrisDescription.glassCeramic[6] + ':'}
+                        onChangeText = {value => setGlassCeramics(handleOnChangeText(value, 6, glassCeramics))}
                     />
                     <InputDebris 
-                        label = 'Total weight of items (kg):'
-                        onChangeText = {value => setGlassCeramices(handleOnChangeText(value, 7, glassCeramices))}
+                        label = {debrisDescription.glassCeramic[7] + ':'}
+                        onChangeText = {value => setGlassCeramics(handleOnChangeText(value, 7, glassCeramics))}
                         borderBottom = {true}
                     />
                 </Collapsible>
                 <Collapsible title='Medical Waste'>
                     <InputDebris 
-                        label = 'Medical waste (needles, needle caps, infusion bottles, medical containers...):'
+                        label = {debrisDescription.medicalWaste[0] + ':'}
                         onChangeText = {value => setMedicalWastes(handleOnChangeText(value, 0, medicalWastes))}
                     />
                     <InputDebris 
-                        label = 'Other medical items (patches, bandages...):'
+                        label = {debrisDescription.medicalWaste[1] + ':'}
                         onChangeText = {value => setMedicalWastes(handleOnChangeText(value, 1, medicalWastes))}
                     />
                     <InputDebris 
-                        label = 'Total weight of items (kg):'
+                        label = {debrisDescription.medicalWaste[2] + ':'}
                         onChangeText = {value => setMedicalWastes(handleOnChangeText(value, 2, medicalWastes))}
                         borderBottom = {true}
                     />

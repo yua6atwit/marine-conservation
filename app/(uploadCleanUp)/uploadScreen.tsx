@@ -1,5 +1,4 @@
 import { Button } from '@/components/Button';
-import { Header } from '@/components/Header';
 import { InputUnderline } from '@/components/Input';
 import { KeyboardView } from '@/components/KeyboardView';
 import { ScreenWrapper } from '@/components/ScreenWrapper';
@@ -9,6 +8,7 @@ import { router } from 'expo-router';
 import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
+export var monitoringForm = new Array(10).fill(0);
 
 export default function UploadScreen() {
   const [formData, setFormData] = useState(new Array(10).fill(0))
@@ -22,17 +22,17 @@ export default function UploadScreen() {
       updatedInputs[index] = text
 
       // Update state with the modified array 
+      monitoringForm = updatedInputs;
       return updatedInputs
   }
 
 
   const onSubmit = () => {
-    router.push('/screens/catagories')
+    router.push('/(uploadCleanUp)/catagories')
   }
 
   return (
     <ScreenWrapper>
-      <Header title = 'Upload Clean Up' onPress ={() => router.replace('/(tabs)/addScreen')}/>
       <KeyboardView>
         <View style = {[styles.container]}>
 
@@ -94,6 +94,7 @@ export default function UploadScreen() {
 
 const styles = StyleSheet.create({
   container: {
+    paddingTop: 80,
     gap: 20,
   },
   form: {
@@ -103,7 +104,7 @@ const styles = StyleSheet.create({
   },
   bottomButton: {
     paddingHorizontal: wp(5),
-    paddingTop: hp(4),
+    paddingTop: hp(3),
     paddingBottom: hp(2)
   }
 });

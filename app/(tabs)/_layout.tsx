@@ -1,15 +1,10 @@
 import { colors } from '@/constants/theme';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { router, Tabs } from 'expo-router';
-import { getAuth } from 'firebase/auth';
+import { Tabs } from 'expo-router';
 import React from 'react';
 
 
 export default function AppLayout() {
-
-  getAuth().onAuthStateChanged((user) => {
-    if (!user) router.replace("/login");
-  });
 
   return (
     <TabNav/>

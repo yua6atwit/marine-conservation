@@ -1,15 +1,62 @@
-import { db } from "@/firebaseConfig"
-import { addDoc, collection } from "firebase/firestore"
+import { db } from "@/firebaseConfig";
+import { addDoc, collection, doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
+
 
 
 export type DebrisItem = {
-  id: number,
+  id: string,
+  category: string,
   description: string,
   collected: number,
 }
 
-export type Debris = {
-    type: Plastic
+
+export const createDebrisData = async (data : DebrisItem) => {
+  try{
+
+    const docRef = await setDoc(doc(db, "debris", data.id), {
+      id: data.id,
+      category: data.category,
+      description: data.description,
+      collected: data.collected,
+    }); 
+
+  
+    return {success: true}
+  }catch(e){
+    console.log('createPost error', e)
+    return {success: false, msg: 'Could not create your post'}
+  }
+}
+
+export const updateDebrisData = async ( data : DebrisItem) => {
+  // Get a reference to the document you want to update
+  const docRef = doc(db, 'debris', data.id)
+  const docSnap = await getDoc(docRef);
+  const current = docSnap.data();
+
+  if (docSnap.exists()) {
+    // Update the document with the new data
+    await updateDoc(docRef, {
+      id: data.id,
+      catagory: data.category,
+      description: data.description,
+      collected: data.collected
+    });     
+  }
+}
+
+export const getDebrisData = async (data : DebrisItem) => {
+  const docRef = doc(db, 'debris', data.id);
+  const docSnap = await getDoc(docRef);
+
+  if (docSnap.exists()) {
+  console.log("Document data:", docSnap.data());
+  console.log("Document ID:", docSnap.id); 
+  } else {
+  // doc.data() will be undefined in this case
+  console.log("No such document!");
+  }
 }
 
 type Plastic = {
@@ -39,6 +86,7 @@ type Plastic = {
     DisposableMedicalMasks?: number
     Other?: number
 }
+
 const plastic = () => {
 
     const data: Plastic = {
@@ -63,9 +111,6 @@ const plastic = () => {
 
     return data
 }
-
-
-plastic
 
 export const createPost = async (debris : Plastic) => {
     try{

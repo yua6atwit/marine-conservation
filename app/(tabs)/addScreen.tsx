@@ -9,7 +9,7 @@ export default function AddScreen() {
     <ScreenWrapper>
       <View style = {styles.container}>
         <Button label='Post' onPress={() => router.push('/screens/postScreen')}/>
-        <Button label='Upload' onPress={() => router.push('/screens/uploadScreen')}/>
+        <Button label='Upload' onPress={() => router.push('/(uploadCleanUp)/uploadScreen')}/>
       </View>
     </ScreenWrapper>
   );

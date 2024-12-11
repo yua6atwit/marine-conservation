@@ -15,5 +15,5 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-, "app/+not-found.tsx", "app/_layout.tsx", "app/(tabs)/home.tsx","app/(tabs)/_layout.tsx","app/register.js", "app/screens/login.tsx", "app/index.tsx", "app/screens/uploadScreen.tsx", "app/screens/postScreen.tsx", "app/(tabs)/profileScreen.tsx"]
+, "app/+not-found.tsx", "app/_layout.tsx", "app/(tabs)/home.tsx","app/(tabs)/_layout.tsx","app/register.js", "app/screens/login.tsx", "app/index.tsx", "app/(uploadCleanUp)/uploadScreen.tsx", "app/screens/postScreen.tsx", "app/(tabs)/profileScreen.tsx"]
 }
