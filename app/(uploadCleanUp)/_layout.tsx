@@ -1,5 +1,5 @@
 import { Text } from '@/components/Text';
-import { hp, wp } from '@/constants/helper';
+import { hp, wp } from '@/components/helper';
 import { colors } from '@/constants/theme';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { router } from 'expo-router';

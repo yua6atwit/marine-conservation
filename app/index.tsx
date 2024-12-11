@@ -1,7 +1,7 @@
 import { Button } from '@/components/Button';
 import { ScreenWrapper } from '@/components/ScreenWrapper';
 import { Text } from '@/components/Text';
-import { hp, wp } from '@/constants/helper';
+import { hp, wp } from '@/components/helper';
 import { useRouter } from 'expo-router';
 import { Image, Pressable, StyleSheet, View } from 'react-native';
 

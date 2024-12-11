@@ -1,4 +1,4 @@
-import { hp, wp } from "@/constants/helper";
+import { hp, wp } from "@/components/helper";
 import { router } from "expo-router";
 import moment from "moment";
 import { Image, StyleSheet, TouchableOpacity, View } from "react-native";

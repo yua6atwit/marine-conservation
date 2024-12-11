@@ -1,4 +1,4 @@
-import { hp } from '@/constants/helper';
+import { hp } from '@/components/helper';
 import { colors } from '@/constants/theme';
 import { Text as DefaultText, StyleSheet, type TextProps } from 'react-native';
 

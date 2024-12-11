@@ -1,7 +1,7 @@
 import { getPosts } from '@/components/database/PostDB';
+import { hp } from '@/components/helper';
 import { PostItem } from '@/components/PostItem';
 import { ScreenWrapper } from '@/components/ScreenWrapper';
-import { hp } from '@/constants/helper';
 import { useAuth } from '@/context/authContext';
 import React, { useEffect, useState } from 'react';
 import { FlatList, StyleSheet } from 'react-native';

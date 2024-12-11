@@ -4,7 +4,7 @@ import { Input } from '@/components/Input';
 import { KeyboardView } from '@/components/KeyboardView';
 import { ScreenWrapper } from '@/components/ScreenWrapper';
 import { Text } from '@/components/Text';
-import { wp } from '@/constants/helper';
+import { wp } from '@/components/helper';
 import { useAuth } from '@/context/authContext';
 import { router } from 'expo-router';
 import React, { useRef, useState } from "react";

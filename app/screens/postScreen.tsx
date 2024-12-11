@@ -1,10 +1,10 @@
 import { Button } from '@/components/Button';
 import { createPost, PostData } from '@/components/database/PostDB';
 import { Header } from '@/components/Header';
+import { hp, wp } from '@/components/helper';
 import { RichTextEditor } from '@/components/RichTextEditor';
 import { ScreenWrapper } from '@/components/ScreenWrapper';
 import { Text } from '@/components/Text';
-import { hp, wp } from '@/constants/helper';
 import { useAuth } from '@/context/authContext';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import * as ImagePicker from 'expo-image-picker';

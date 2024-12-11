@@ -1,6 +1,6 @@
 import { BackButton } from "@/components/BackButton";
 import { ScreenWrapper } from "@/components/ScreenWrapper";
-import { hp } from "@/constants/helper";
+import { hp } from "@/components/helper";
 import { useLocalSearchParams } from "expo-router";
 import { StyleSheet, View } from "react-native";
 

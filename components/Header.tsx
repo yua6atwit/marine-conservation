@@ -1,4 +1,4 @@
-import { hp } from "@/constants/helper";
+import { hp } from "@/components/helper";
 import { colors } from "@/constants/theme";
 import { StatusBar, StyleSheet, View } from "react-native";
 import { BackButton } from "./BackButton";

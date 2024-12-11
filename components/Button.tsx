@@ -1,4 +1,4 @@
-import { hp } from "@/constants/helper";
+import { hp } from "@/components/helper";
 import { colors } from "@/constants/theme";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
 import { Loading } from "./Loading";

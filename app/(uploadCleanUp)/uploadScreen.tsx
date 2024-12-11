@@ -2,7 +2,7 @@ import { Button } from '@/components/Button';
 import { InputUnderline } from '@/components/Input';
 import { KeyboardView } from '@/components/KeyboardView';
 import { ScreenWrapper } from '@/components/ScreenWrapper';
-import { hp, wp } from '@/constants/helper';
+import { hp, wp } from '@/components/helper';
 import { colors } from '@/constants/theme';
 import { router } from 'expo-router';
 import { useState } from 'react';

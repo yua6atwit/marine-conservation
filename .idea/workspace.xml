@@ -5,14 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd296179-ca3d-45a7-b31e-50d666717768" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.expo/devices.json" beforeDir="false" afterPath="$PROJECT_DIR$/.expo/devices.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/addScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/addScreen.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(tabs)/home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(tabs)/profileScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(tabs)/profileScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(uploadCleanUp)/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(uploadCleanUp)/_layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(uploadCleanUp)/catagories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(uploadCleanUp)/catagories.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/+not-found.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/+not-found.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(uploadCleanUp)/uploadScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(uploadCleanUp)/uploadScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/login.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/screens/postPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/postPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/context/authContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/context/authContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/screens/postScreen.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/postScreen.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/signup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/signup.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Input.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Input.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/PostItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/PostItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Text.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Text.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constants/helper.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

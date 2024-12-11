@@ -1,11 +1,11 @@
 import { Button } from "@/components/Button";
 import { Collapsible } from "@/components/Collapsible";
 import { DebrisItem } from "@/components/database/Debris";
+import { hp, wp } from "@/components/helper";
 import { InputDebris } from "@/components/Input";
 import { ScreenWrapper } from "@/components/ScreenWrapper";
 import { Text } from "@/components/Text";
 import { debrisCategories, debrisDescription } from "@/constants/debrisDescription";
-import { hp, wp } from "@/constants/helper";
 import { useState } from "react";
 import { Alert, ScrollView, StyleSheet, View } from "react-native";
 
